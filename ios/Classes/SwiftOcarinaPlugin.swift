@@ -26,6 +26,7 @@ class LoopPlayer: Player {
         let asset = AVAsset(url: URL(fileURLWithPath: url))
         
         let playerItem = AVPlayerItem(asset: asset)
+        playerItem.preferredForwardBufferDuration = 10.0 // Ten seconds
 
         player = AVQueuePlayer(items: [playerItem])
         playerLooper = AVPlayerLooper(player: player, templateItem: playerItem)
